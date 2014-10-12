@@ -38,6 +38,7 @@ run_analysis <- function() {
   dsLen = length(ds)
   
   ds = group_by(ds, subject, activity)
+  ## below function calling is awkard :(
   dsMean = mutate(ds, mean(tBodyAcc.mean.X)
                   ,mean(tBodyAcc.mean.Y)
                   ,mean(tBodyAcc.mean.Z)
@@ -120,7 +121,7 @@ run_analysis <- function() {
   dsMeanLen = length(dsMean)
   dsMean = dsMean[,c(1,2, (dsLen+1) : dsMeanLen)]
   
-  res = list(ds = ds, dsMean = unique(dsMean))
+  unique(dsMean)
 }
 
 ## Get list of activity names
